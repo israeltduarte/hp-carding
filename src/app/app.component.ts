@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
+import * as data from '../api/data.json';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'hp-carding-game-app';
+  title = 'harry-potter-carding-game-app';
+  header = data;
 }

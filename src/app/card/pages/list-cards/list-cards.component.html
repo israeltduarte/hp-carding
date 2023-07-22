@@ -1,0 +1,161 @@
+<ngx-spinner
+  bdColor="rgba(0, 0, 0, 0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-atom"
+  [fullScreen]="true"
+></ngx-spinner>
+<div *ngIf="shouldShow">
+  <div class="form card-search-box">
+    <input
+      #search
+      type="text"
+      class="form-control form-input"
+      placeholder="Search cards..."
+      [(ngModel)]="searchText"
+    />
+    <div class="cards-number">
+      {{ filteredCards.length }}
+      {{ filteredCards.length == 1 ? "card" : "cards" }} found
+    </div>
+    <div *ngIf="filteredCards.length === 0">No cards found.</div>
+  </div>
+
+  <div #dataToExport class="data-to-export">
+    <div
+      *ngFor="let card of filteredCards; let i = index"
+      (click)="toggleCardState(i)"
+    >
+      <div *ngIf="!cardStates[i]; then card_content; else verse_content"></div>
+
+      <ng-template #verse_content>
+        <div
+          class="card-verse"
+          [style]="
+            'background-image: url(../assets/verse.png); background: cover'
+          "
+        >
+          &nbsp;
+        </div>
+      </ng-template>
+
+      <ng-template #card_content>
+        <div
+          *ngIf="
+            card.type == 'Personagem';
+            then character_card;
+            else other_card
+          "
+        ></div>
+
+        <ng-template #character_card>
+          <div
+            class="card-info"
+            [style.background-image]="'url(' + card.imageUrl + ')'"
+          >
+            <div class="card-content">
+              <div class="card-name">
+                {{ card.name }}
+              </div>
+              <div class="character-info">
+                <div class="info-item col-md">
+                  <div>Vida</div>
+                  <div>{{ card.hp }}</div>
+                </div>
+                <div class="info-item col-md">
+                  <div>Magia</div>
+                  <div>{{ card.magic }}</div>
+                </div>
+                <div
+                  *ngIf="
+                    card.isAnimagus === true ||
+                    card.usesBroomstick === true ||
+                    card.canUseMagicWandless ||
+                    card.isDarkWizard
+                  "
+                  class="skills-bar col-md"
+                >
+                  <div class="skills-line">
+                    <div *ngIf="card.isAnimagus === true">
+                      <img src="../../../../assets/veado.png" alt="Animagus" />
+                    </div>
+                    <div *ngIf="card.usesBroomstick === true">
+                      <img
+                        src="../../../../assets/vassoura.png"
+                        alt="Broomstick"
+                      />
+                    </div>
+                  </div>
+                  <div class="skills-line">
+                    <div *ngIf="card.canUseMagicWandless === true">
+                      <img
+                        src="../../../../assets/wandless.png"
+                        alt="Wandless"
+                      />
+                    </div>
+                    <div *ngIf="card.isDarkWizard === true">
+                      <img
+                        src="../../../../assets/comensal.png"
+                        alt="DarkWizard"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+
+        <ng-template #other_card>
+          <div
+            class="card-info"
+            [style]="
+              'background-image: url(../assets/otherbg.png); background: cover'
+            "
+          >
+            <div class="card-content">
+              <div class="card-name">
+                {{ card.name }}
+              </div>
+              <div class="others-info">
+                <div *ngIf="card.imageUrl != null">
+                  <img
+                    class="others-img"
+                    [src]="'../../../../assets/' + card.imageUrl"
+                    alt=""
+                  />
+                </div>
+                <div>
+                  {{ card.description }}
+                </div>
+                <div class="card-detail">
+                  <div *ngIf="card.observation" class="card-alert">
+                    {{ card.observation }}
+                  </div>
+
+                  <div [ngSwitch]="card.type">
+                    <div *ngSwitchCase="'Item'">
+                      <div class="card-type card-item">
+                        {{ card.type }}
+                      </div>
+                    </div>
+                    <div *ngSwitchCase="'Poção'">
+                      <div class="card-type card-potion">
+                        {{ card.type }}
+                      </div>
+                    </div>
+                    <div *ngSwitchCase="'Feitiço'">
+                      <div class="card-type card-charm">
+                        {{ card.type }}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </ng-template>
+    </div>
+  </div>
+</div>

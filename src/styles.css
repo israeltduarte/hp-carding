@@ -1,1 +1,17 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  margin: 0 auto;
+  height: auto;
+  width: 1024px;
+}
+
+h1 {
+  font-weight: bold;
+}
+
+a {
+  text-decoration: none;
+}
+
+.top-header {
+  text-align: center;
+}

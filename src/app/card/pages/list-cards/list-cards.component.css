@@ -1,0 +1,132 @@
+.card-search-box {
+  margin-bottom: 20px;
+}
+
+.card-info {
+  height: 378px;
+  border: 1px solid black;
+  width: 256px;
+  padding-top: 10px;
+  float: left;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.card-verse {
+  height: 378px;
+  border: 1px solid black;
+  width: 256px;
+  padding-top: 8px;
+  float: left;
+  background-size: 254px 378px;
+  background-repeat: no-repeat;
+}
+
+.cards-number {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.card-name {
+  padding: 2px 10px;
+  text-align: center;
+  font-size: 18px;
+  color: white;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.card-content {
+  text-align: center;
+  height: 356px;
+  position: relative;
+}
+
+.card-alert {
+  font-size: 12px;
+}
+
+.character-info {
+  background: rgba(255, 255, 255, 0.5);
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  text-align: center;
+  min-height: 78px;
+  padding-top: 6px;
+}
+
+.skills-bar {
+  min-width: 54px;
+  display: flex;
+}
+
+.skills-bar img {
+  width: 24px;
+  height: 24px;
+}
+
+.info-item {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.info-item,
+.skills-bar {
+  padding: 5px;
+}
+
+.character-background-image img {
+  width: 100px;
+  height: 200px;
+}
+
+.skills-line {
+  margin: 0 auto;
+}
+
+.others-info {
+  height: 318px;
+  position: relative;
+  margin: 10px 12px 0 12px;
+}
+
+.card-detail {
+  width: 100%;
+  margin-top: 8px;
+  position: absolute;
+  bottom: 0;
+}
+
+.card-type {
+  text-align: center;
+  color: white;
+  width: min-content;
+  padding: 0 15px;
+  margin: 0 auto;
+  margin-top: 10px;
+  border-radius: 20px;
+}
+
+.others-img {
+  /* background-size: contain; */
+  background-repeat: no-repeat;
+  height: 130px;
+  width: 230px;
+  margin-bottom: 10px;
+}
+
+.card-item {
+  background-color: rgb(18, 21, 89);
+}
+.card-potion {
+  background-color: rgb(20, 86, 16);
+}
+.card-charm {
+  background-color: rgb(120, 3, 3);
+}
+
+.data-to-export{
+  background-color: red;
+}
